@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2022",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@def-soc-demo/core": ["libs/src/index.ts"],
+      "@def-soc-demo/core/reports": ["libs/reports/src/index.ts"],
+      "@def-soc-demo/core/reports-list": ["libs/reports-list/src/index.ts"],
+      "@def-soc-demo/core/services": ["libs/services/src/index.ts"],
+      "@def-soc-demo/core/types": ["libs/types/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

@@ -1,0 +1,11 @@
+<h6>Fughe di Dati (Data Leak)</h6>
+
+<div class="d-flex flex-column mb-3">
+  <div class="d-flex flex-row justify-content-between mb-3">
+    <div>Punteggio</div>
+    <div><strong>{{report().dataleak_score}}</strong></div>
+  </div>
+</div>
+
+
+<div id="dataleak-chart" echarts [options]="dataleakOption" style="height: 400px"></div>

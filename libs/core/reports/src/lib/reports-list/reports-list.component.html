@@ -1,0 +1,57 @@
+@if ((reports$ | async); as reportResponse) {
+  <mat-sidenav-container>
+    <mat-sidenav mode="side" opened class="bg-body-secondary">
+
+      <div class="bg-primary p-3 d-flex align-items-center justify-content-between gap-1">
+        <label class="text-white">Esito report</label>
+        <div class="status success"
+             [matTooltip]="reportResponse.status"
+             matTooltipPosition="right"
+             [ngClass]="reportResponse.status"></div>
+      </div>
+
+      <div>
+        <h6 class="p-3">Domini analizzati</h6>
+        @for (report of reportResponse?.results;
+          track report.idsummary;
+          let even = $even) {
+
+          <div (click)="selectedReport.set(report)"
+               [ngClass]="{'bg-body-tertiary': even}"
+               class="p-3 pointer">
+            <div class="d-flex justify-content-between">
+              <label>{{ report.domain_name }}</label>
+              <label>Rischio
+                <strong class="text-success"
+                        [ngClass]="{
+              'text-success': isInRange(report.risk_score, 0, 33),
+              'text-warning': isInRange(report.risk_score, 34, 66),
+              'text-danger': isInRange(report.risk_score, 67, 100)
+              }">{{ report.risk_score }}
+                </strong>
+              </label>
+            </div>
+            <label class="small">{{ report.creation_date | date:'short' }}</label>
+          </div>
+
+        }
+      </div>
+
+
+    </mat-sidenav>
+    <mat-sidenav-content class="p-3">
+      @if (!selectedReport()) {
+        <div class="d-flex justify-content-center align-items-center full-h">
+          Seleziona un'analisi per visualizzare i dettagli.
+        </div>
+      } @else {
+        <lib-report [report]="selectedReport()!"/>
+      }
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+} @else {
+  <div class="d-flex justify-content-center align-items-center full-h">
+    Nessun report da mostrare.
+  </div>
+}
+

@@ -1,0 +1,56 @@
+<mat-card appearance="raised" class="p-3 mb-3">
+  <div class="d-flex flex-row justify-content-between">
+    <div class="d-flex flex-column">
+      <h5>🌐 {{ report().domain_name }}</h5>
+      <label>Data creazione {{ report().creation_date | date:'short' }}</label>
+      <label>Ultima modifica {{ report().creation_date | date:'short' }}</label>
+    </div>
+
+    <div class="d-flex flex-column justify-content-center align-items-end">
+      <label>Rischio {{ report().risk_score }}</label>
+    </div>
+  </div>
+</mat-card>
+
+<div class="d-flex flex-row flex-wrap justify-content-between">
+  <div class="d-flex mb-3 w-50">
+    <mat-card appearance="raised" class="p-3 m-1 w-100">
+      <lib-vulnerabilities [report]="report()" />
+    </mat-card>
+  </div>
+
+  <div class="d-flex mb-3 w-50 align-items-stretch">
+    <mat-card appearance="raised" class="p-3 m-1 w-100">
+      <lib-exposure [report]="report()" />
+    </mat-card>
+  </div>
+
+  <div class="mb-3 w-50 p-1 d-flex align-items-stretch">
+    <mat-card appearance="raised" class="p-3 m-1 w-100">
+      <lib-dataleak [report]="report()" />
+    </mat-card>
+  </div>
+  <div class="mb-3 w-50 p-1 d-flex align-items-stretch">
+    <mat-card appearance="raised" class="p-3 m-1 w-100">
+      <lib-email-security [report]="report()" />
+    </mat-card>
+  </div>
+  <div class="mb-3 w-50 p-1 d-flex align-items-stretch">
+    <mat-card appearance="raised" class="p-3 m-1 w-100">
+      <lib-certificates [report]="report()" />
+    </mat-card>
+  </div>
+  <div class="mb-3 w-50 p-1 d-flex align-items-stretch">
+    <mat-card appearance="raised" class="p-3 m-1 w-100">
+      <lib-security-extra [report]="report()" />
+    </mat-card>
+  </div>
+  <div class="mb-3 w-50 p-1 d-flex align-items-stretch">
+    <mat-card appearance="raised" class="p-3 m-1 w-100">
+      <lib-domains [report]="report()" />
+    </mat-card>
+  </div>
+</div>
+<mat-card appearance="raised" class="p-3 mb-3 flex-grow-1">
+  <lib-recap [report]="report()" />
+</mat-card>

@@ -1,0 +1,45 @@
+{
+  "name": "core",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs//ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs//tsconfig.lib.prod.json",
+          "styles": [
+            "styles.css",
+            "node_modules/bootstrap/dist/css/bootstrap.min.css"
+          ],
+          "scripts": [
+            "node_modules/jquery/dist/jquery.min.js",
+            "node_modules/bootstrap/dist/js/bootstrap.min.js"
+          ]
+        },
+        "development": {
+          "tsConfig": "libs//tsconfig.lib.json",
+          "styles": [
+            "styles.css",
+            "node_modules/bootstrap/dist/css/bootstrap.min.css"
+          ],
+          "scripts": [
+            "node_modules/jquery/dist/jquery.min.js",
+            "node_modules/bootstrap/dist/js/bootstrap.min.js"
+          ]
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+<h6>Dettagli delle Vulnerabilità</h6>
+
+<div class="d-flex flex-column mb-3">
+  <div class="d-flex flex-row justify-content-between">
+    <div>
+      Attive <label class="small ml-3">richiedono un'azione immediata</label>
+    </div>
+    <div><strong>{{report().vulnerability_score_active}}</strong></div>
+  </div>
+  <div class="d-flex flex-row justify-content-between">
+    <div>Passive <label class="small ml-3">rappresentano una minaccia ma sono meno urgenti</label></div>
+    <div><strong>{{report().vulnerability_score_passive}}</strong></div>
+  </div>
+</div>
+
+<div id="active-chart" echarts [options]="activeChartOption" style="height: 400px"></div>
+<div id="passive-chart" echarts [options]="passiveChartOption" style="height: 400px"></div>

@@ -1,0 +1,27 @@
+<h6>Altre Informazioni di Sicurezza</h6>
+
+<label><strong>Web Application Firewall (WAF)</strong></label>
+<div class="d-flex flex-column mb-3">
+  <div class="d-flex flex-row justify-content-between">
+    <div>Asset protetti</div>
+    <div>{{report().waf.count}}</div>
+  </div>
+
+  <div class="d-flex flex-row justify-content-between">
+    <div>Elenco asset specifici con WAF attivi</div>
+  </div>
+
+  <div class="d-flex flex-column">
+    @for (asset of report().waf.assets; track asset) {
+      <div>{{asset}}</div>
+    }
+  </div>
+</div>
+
+<label><strong>Content Delivery Network (CDN)</strong></label>
+<div class="d-flex flex-column mb-3">
+  <div class="d-flex flex-row justify-content-between">
+    <div>Asset protetti</div>
+    <div>{{report().cdn.count}}</div>
+  </div>
+</div>

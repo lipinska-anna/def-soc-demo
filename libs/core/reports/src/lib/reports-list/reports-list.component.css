@@ -1,0 +1,14 @@
+.status {
+    border-radius: 10rem;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    height: 1.25rem;
+    width: 1.25rem;
+    border: 2px solid white;
+}
+
+.status.success {
+    background-color: green;
+}
