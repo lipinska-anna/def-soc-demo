@@ -15,6 +15,14 @@
     "sharedGlobals": []
   },
   "nxCloudId": "6754599cc0c1d44f90ec9b4c",
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheDirectory": "/tmp/nx-cache"
+      }
+    }
+  },
   "targetDefaults": {
     "@angular-devkit/build-angular:browser": {
       "cache": true,
