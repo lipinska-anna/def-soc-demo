@@ -1,19 +1,19 @@
-stages:
-  - build
-
-build-tag:
-  stage: build
-  image: node:22.12.0
-  script:
-    - NODE_ENV=production
-    - npm ci
-    - npx nx build
-    - echo "BUILD SUCCESSFULL"
-  only:
-    - tags
-  artifacts:
-    paths:
-      - dist/
-    expire_in: 120 mins
-
-
+#stages:
+#  - build
+#
+#build-tag:
+#  stage: build
+#  image: node:22.12.0
+#  script:
+#    - NODE_ENV=production
+#    - npm ci
+#    - npx nx build
+#    - echo "BUILD SUCCESSFULL"
+#  only:
+#    - tags
+#  artifacts:
+#    paths:
+#      - dist/
+#    expire_in: 120 mins
+#
+#
